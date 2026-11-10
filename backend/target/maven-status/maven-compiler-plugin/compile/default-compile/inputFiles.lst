@@ -1,0 +1,14 @@
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\App.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\controllers\AssignmentController.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\entities\Assignment.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\entities\Employee.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\entities\Function.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\entities\Restaurant.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\repos\AssignmentRepository.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\repos\EmployeeRepository.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\repos\FunctionRepository.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\repos\RestaurantRepository.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\services\AssignmentService.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\services\EmployeeService.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\services\FunctionService.java
+d:\dev\java\Wacdo\backend\src\main\java\fr\hadriel\services\RestaurantService.java

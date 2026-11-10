@@ -1,0 +1,14 @@
+fr\hadriel\services\AssignmentService.class
+fr\hadriel\entities\Employee.class
+fr\hadriel\entities\Assignment.class
+fr\hadriel\repos\RestaurantRepository.class
+fr\hadriel\repos\EmployeeRepository.class
+fr\hadriel\services\RestaurantService.class
+fr\hadriel\services\EmployeeService.class
+fr\hadriel\repos\AssignmentRepository.class
+fr\hadriel\repos\FunctionRepository.class
+fr\hadriel\services\FunctionService.class
+fr\hadriel\entities\Restaurant.class
+fr\hadriel\entities\Function.class
+fr\hadriel\App.class
+fr\hadriel\controllers\AssignmentController.class
