@@ -1,6 +1,7 @@
 package fr.hadriel.entities;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -34,7 +35,7 @@ public class Assignment {
     @Column
     private LocalDate begin;
 
-    @Column
+    @Column(nullable = true)
     private LocalDate end;
 
     public Assignment() {
@@ -80,11 +81,15 @@ public class Assignment {
         this.begin = begin;
     }
 
-    public LocalDate getEnd() {
-        return end;
+    public Optional<LocalDate> getEnd() {
+        return Optional.ofNullable(end);
     }
 
     public void setEnd(LocalDate end) {
         this.end = end;
+    }
+
+    public boolean isCompleted() {
+        return end != null;
     }
 }
