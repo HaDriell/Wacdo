@@ -1,0 +1,77 @@
+@startuml Wacdo Data model
+
+class Employee
+{
+    -firstName : String
+    -lastName : String
+    -email : String
+    -contractBegin : LocalDate
+    -contractEnd : LocalDate [0..1]
+    -administrator : boolean
+    -password : String
+    -assignements : Assignment [0..*]
+
+    +getFirstName() : String
+    +setFirstName(name : String) : void
+    +getLastName() : String
+    +setLastName(name : String) : void
+    +getEmail() : String
+    +setEmail(name : String) : void
+    +getContractBegin() : LocalDate
+    +setContractBegin(LocalDate : LocalDate) : void
+    +getContractEnd() : LocalDate
+    +setContractEnd(LocalDate : LocalDate) : void
+    +isAdministrator() : boolean
+    +setAdministrator(administrator : boolean) : void
+    +getPassword() : String
+    +setPassword(password : String) : void
+}
+
+class Restaurant
+{
+    -name : String
+    -street : String
+    -city : String
+    -state : String
+    -zipCode : String
+    -assignments : Assignment [0..*]
+
+    +getName() : String
+    +setName(name : String) : void
+    +getStreet() : String
+    +getCity() : String
+    +getState() : String
+    +getZipCode() : String
+    +setAddress(street : String, city : String, state : String, zipCode : String) : void
+    +getAssignments() : Set<Assignment>
+}
+
+class Function
+{
+    -label : String
+
+    +getLabel() : String
+    +setLabel(label : String) : void
+}
+
+class Assignment
+{
+    -restaurant : Restaurant
+    -function : Function
+    -assignee : Employee
+    -begin : LocalDate
+    -end : LocalDate
+
+    +getRestaurant() : Restaurant
+    +getFunction() : Function
+    +getAssignee() : Employee
+    +setAssignee(employee : Employee) : void
+    +getBegin() : LocalDate
+    +getEnd() : LocalDate
+}
+
+Employee "1" - "0..*" Assignment : is assigned to
+Assignment "0..*" - "1" Restaurant : is served in
+Function "1" -- "*" Assignment 
+
+@enduml
