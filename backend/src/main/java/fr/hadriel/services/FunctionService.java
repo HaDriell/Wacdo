@@ -17,19 +17,27 @@ public class FunctionService {
         this.functionRepository = functionRepository;
     }
 
-    public Function savefunction(Function function) {
+    public Function create(Function function) {
+        if (function.getId() != 0) {
+            throw new RuntimeException();
+        }
         return functionRepository.save(function);
     }
 
-    public List<Function> getAllFunctions() {
-        return functionRepository.findAll();
+    public Function update(Function Function) {
+        functionRepository.findById(Function.getId()).orElseThrow();
+        return functionRepository.save(Function);
     }
 
-    public Optional<Function> findFunctionById(long id) {
+    public void delete(long id) {
+        functionRepository.deleteById(id);
+    }
+
+    public Optional<Function> find(long id) {
         return functionRepository.findById(id);
     }
 
-    public void deleteFunction(long id) {
-        functionRepository.deleteById(id);
+    public List<Function> all() {
+        return functionRepository.findAll();
     }
 }

@@ -17,19 +17,27 @@ public class RestaurantService {
         this.restaurantRepository = restaurantRepository;
     }
 
-    public Restaurant saveRestaurant(Restaurant restaurant) {
+    public Restaurant create(Restaurant restaurant) {
+        if (restaurant.getId() != 0) {
+            throw new RuntimeException();
+        }
         return restaurantRepository.save(restaurant);
     }
 
-    public List<Restaurant> getAllRestaurants() {
-        return restaurantRepository.findAll();
+    public Restaurant update(Restaurant Restaurant) {
+        restaurantRepository.findById(Restaurant.getId()).orElseThrow();
+        return restaurantRepository.save(Restaurant);
     }
 
-    public Optional<Restaurant> findRestaurantById(long id) {
+    public void delete(long id) {
+        restaurantRepository.deleteById(id);
+    }
+
+    public Optional<Restaurant> find(long id) {
         return restaurantRepository.findById(id);
     }
 
-    public void deleteRestaurant(long id) {
-        restaurantRepository.deleteById(id);
+    public List<Restaurant> all() {
+        return restaurantRepository.findAll();
     }
 }

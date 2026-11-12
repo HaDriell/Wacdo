@@ -7,43 +7,38 @@ import org.springframework.stereotype.Service;
 
 import fr.hadriel.entities.Assignment;
 import fr.hadriel.repos.AssignmentRepository;
-import fr.hadriel.repos.EmployeeRepository;
 
 @Service 
 public class AssignmentService {
     
     private final AssignmentRepository assignmentRepository;
-    private final EmployeeRepository employeeRepository;
 
     public AssignmentService(
-        AssignmentRepository assignmentRepository, 
-        EmployeeRepository employeeRepository) {
+        AssignmentRepository assignmentRepository) {
         this.assignmentRepository = assignmentRepository;
-        this.employeeRepository = employeeRepository;
     }
 
-    public Assignment saveAssignemt(Assignment assignment) {
+    public Assignment create(Assignment assignment) {
+        if (assignment.getId() != 0) {
+            throw new RuntimeException();
+        }
         return assignmentRepository.save(assignment);
     }
 
-    public List<Assignment> getAllAssignments() {
-        return assignmentRepository.findAll();
+    public Assignment update(Assignment assignment) {
+        assignmentRepository.findById(assignment.getId()).orElseThrow();
+        return assignmentRepository.save(assignment);
     }
 
-    public Optional<Assignment> findAssignmentById(long id) {
-        return assignmentRepository.findById(id);
-    }
-
-    public void deleteAssignment(long id) {
+    public void delete(long id) {
         assignmentRepository.deleteById(id);
     }
 
-    public Assignment assign(long assignmentId, long assigneeId) {
-        var assignment = assignmentRepository.findById(assignmentId).orElseThrow(() -> new RuntimeException("Assignment not found"));
-        var assignee = employeeRepository.findById(assigneeId).orElseThrow(() -> new RuntimeException("Assignee not found"));
+    public Optional<Assignment> find(long id) {
+        return assignmentRepository.findById(id);
+    }
 
-        assignment.setAssignee(assignee);
-
-        return assignmentRepository.save(assignment);
+    public List<Assignment> all() {
+        return assignmentRepository.findAll();
     }
 }

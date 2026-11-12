@@ -17,19 +17,27 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public Employee saveEmployee(Employee employee) {
+    public Employee create(Employee employee) {
+        if (employee.getId() != 0) {
+            throw new RuntimeException();
+        }
         return employeeRepository.save(employee);
     }
 
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
+    public Employee update(Employee employee) {
+        employeeRepository.findById(employee.getId()).orElseThrow();
+        return employeeRepository.save(employee);
     }
 
-    public Optional<Employee> findEmployeeById(long id) {
+    public void delete(long id) {
+        employeeRepository.deleteById(id);
+    }
+
+    public Optional<Employee> find(long id) {
         return employeeRepository.findById(id);
     }
 
-    public void deleteEmployee(long id) {
-        employeeRepository.deleteById(id);
+    public List<Employee> all() {
+        return employeeRepository.findAll();
     }
 }
