@@ -32,10 +32,10 @@ public class Assignment {
     private Employee assignee;
 
     @Column
-    private LocalDate begin;
+    private LocalDate beginDate;
 
     @Column(nullable = true)
-    private LocalDate end;
+    private LocalDate endDate;
 
     public Assignment() {
     }
@@ -72,23 +72,23 @@ public class Assignment {
         this.assignee = assignee;
     }
 
-    public LocalDate getBegin() {
-        return begin;
+    public LocalDate getBeginDate() {
+        return beginDate;
     }
 
-    public void setBegin(LocalDate begin) {
-        this.begin = begin;
+    public void setBeginDate(LocalDate beginDate) {
+        this.beginDate = beginDate;
     }
 
-    public Optional<LocalDate> getEnd() {
-        return Optional.ofNullable(end);
+    public Optional<LocalDate> getEndDate() {
+        return Optional.ofNullable(endDate);
     }
 
-    public void setEnd(LocalDate end) {
-        this.end = end;
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 
     public boolean isCompleted() {
-        return end != null;
+        return endDate != null;
     }
 }

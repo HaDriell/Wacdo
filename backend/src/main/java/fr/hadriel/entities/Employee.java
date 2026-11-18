@@ -1,6 +1,6 @@
 package fr.hadriel.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +22,7 @@ public class Employee {
     private String lastName;
 
     @Column
-    private Date dateOfHire;
+    private LocalDate dateOfHire;
 
     @Column
     private boolean administrator;
@@ -57,11 +57,11 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public Date getDateOfHire() {
+    public LocalDate getDateOfHire() {
         return dateOfHire;
     }
 
-    public void setDateOfHire(Date dateOfHire) {
+    public void setDateOfHire(LocalDate dateOfHire) {
         this.dateOfHire = dateOfHire;
     }
 
