@@ -24,9 +24,9 @@ public class RestaurantService {
         return restaurantRepository.save(restaurant);
     }
 
-    public Restaurant update(Restaurant Restaurant) {
-        restaurantRepository.findById(Restaurant.getId()).orElseThrow();
-        return restaurantRepository.save(Restaurant);
+    public Restaurant update(Restaurant restaurant) {
+        restaurantRepository.findById(restaurant.getId()).orElseThrow();
+        return restaurantRepository.save(restaurant);
     }
 
     public void delete(long id) {

@@ -7,14 +7,11 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
-import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
-import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
 
 import fr.hadriel.entities.Employee;
 import fr.hadriel.repos.EmployeeRepository;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
 public class EmployeeRepositoryTest {
 
     @Autowired 

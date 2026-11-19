@@ -5,7 +5,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data 
+@NoArgsConstructor 
+@AllArgsConstructor 
+@Builder 
 @Entity 
 public class Function {
 
@@ -15,23 +23,4 @@ public class Function {
 
     @Column
     private String label;
-
-    public Function() {
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-    
-    public void setLabel(String label) {
-        this.label = label;
-    }
 }

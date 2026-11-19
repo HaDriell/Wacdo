@@ -1,7 +1,6 @@
 package fr.hadriel.entities;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,7 +10,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class Assignment {
 
@@ -36,59 +43,4 @@ public class Assignment {
 
     @Column(nullable = true)
     private LocalDate endDate;
-
-    public Assignment() {
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
-
-    public Function getFunction() {
-        return function;
-    }
-
-    public void setFunction(Function function) {
-        this.function = function;
-    }
-
-    public Employee getAssignee() {
-        return assignee;
-    }
-
-    public void setAssignee(Employee assignee) {
-        this.assignee = assignee;
-    }
-
-    public LocalDate getBeginDate() {
-        return beginDate;
-    }
-
-    public void setBeginDate(LocalDate beginDate) {
-        this.beginDate = beginDate;
-    }
-
-    public Optional<LocalDate> getEndDate() {
-        return Optional.ofNullable(endDate);
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
-
-    public boolean isCompleted() {
-        return endDate != null;
-    }
 }

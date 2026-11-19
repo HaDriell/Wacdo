@@ -7,9 +7,6 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
-import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
-import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabase;
-import org.springframework.test.context.TestPropertySource;
 
 import fr.hadriel.entities.Assignment;
 import fr.hadriel.entities.Employee;
@@ -21,10 +18,6 @@ import fr.hadriel.repos.FunctionRepository;
 import fr.hadriel.repos.RestaurantRepository;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
-@TestPropertySource(properties = {
-    "spring.jpa.database-platform=org.hibernate.dialect.H2Dialect"
-})
 public class AssignmentRepositoryTest {
 
     @Autowired 
@@ -77,7 +70,7 @@ public class AssignmentRepositoryTest {
     }
 
     @Test
-    void findByAssigneeId_shouldFilterPerAssigneeId() {
+    void findByAssigneeId_shouldFindPerAssigneeId() {
         var restaurant = makeRestaurant("Restaurant");
         var equipier = makeFunction("Equipier");
         var manager = makeFunction("Manager");
