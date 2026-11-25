@@ -30,7 +30,7 @@ public class FunctionController {
         this.functionService = functionService;
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<Function> create(@RequestBody Function function) {
         var result = functionService.create(function);
         return new ResponseEntity<>(result, HttpStatus.CREATED);

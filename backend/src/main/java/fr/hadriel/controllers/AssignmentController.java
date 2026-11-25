@@ -30,7 +30,7 @@ public class AssignmentController {
         this.assignmentService = assignmentService;
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<Assignment> create(@RequestBody Assignment assignment) {
         var result = assignmentService.create(assignment);
         return new ResponseEntity<>(result, HttpStatus.CREATED);

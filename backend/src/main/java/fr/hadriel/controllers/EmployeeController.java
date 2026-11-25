@@ -30,7 +30,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<Employee> create(@RequestBody Employee employee) {
         var result = employeeService.create(employee);
         return new ResponseEntity<>(result, HttpStatus.CREATED);

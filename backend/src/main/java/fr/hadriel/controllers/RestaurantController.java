@@ -30,7 +30,7 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<Restaurant> create(@RequestBody Restaurant employee) {
         var result = restaurantService.create(employee);
         return new ResponseEntity<>(result, HttpStatus.CREATED);
