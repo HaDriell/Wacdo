@@ -1,9 +1,10 @@
-package fr.hadriel.repos;
+package fr.hadriel.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import fr.hadriel.entities.Assignment;
+import fr.hadriel.model.Assignment;
+
 import java.util.stream.Stream;
 
 

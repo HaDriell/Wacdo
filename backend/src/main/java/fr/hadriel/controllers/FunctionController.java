@@ -2,7 +2,7 @@ package fr.hadriel.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.hadriel.entities.Function;
+import fr.hadriel.model.Function;
 import fr.hadriel.services.FunctionService;
 
 import java.util.List;

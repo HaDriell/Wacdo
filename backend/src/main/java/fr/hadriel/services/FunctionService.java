@@ -5,8 +5,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import fr.hadriel.entities.Function;
-import fr.hadriel.repos.FunctionRepository;
+import fr.hadriel.model.Function;
+import fr.hadriel.repositories.FunctionRepository;
 
 @Service
 public class FunctionService {

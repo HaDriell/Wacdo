@@ -2,7 +2,7 @@ package fr.hadriel.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.hadriel.entities.Restaurant;
+import fr.hadriel.model.Restaurant;
 import fr.hadriel.services.RestaurantService;
 
 import java.util.List;

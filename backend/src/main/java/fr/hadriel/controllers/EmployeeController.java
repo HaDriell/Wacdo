@@ -2,7 +2,9 @@ package fr.hadriel.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.hadriel.entities.Employee;
+import fr.hadriel.model.dto.EmployeeCreateDTO;
+import fr.hadriel.model.dto.EmployeeDTO;
+import fr.hadriel.model.dto.EmployeeUpdateDTO;
 import fr.hadriel.services.EmployeeService;
 
 import java.util.List;
@@ -31,28 +33,28 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<Employee> create(@RequestBody Employee employee) {
+    public ResponseEntity<EmployeeDTO> create(@RequestBody EmployeeCreateDTO employee) {
         var result = employeeService.create(employee);
         return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<Employee>> all() {
-        List<Employee> assignments = employeeService.all();
+    public ResponseEntity<List<EmployeeDTO>> all() {
+        List<EmployeeDTO> assignments = employeeService.all();
         return ResponseEntity.ok(assignments);
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Employee> one(@PathVariable long id) {
+    public ResponseEntity<EmployeeDTO> one(@PathVariable long id) {
         return employeeService.find(id)
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
 
-    @PutMapping
-    public ResponseEntity<Employee> update(@RequestBody Employee assignment) {
+    @PutMapping("/{id}")
+    public ResponseEntity<EmployeeDTO> update(@PathVariable long id, @RequestBody EmployeeUpdateDTO dto) {
         try {
-            var updatedEmployee = employeeService.update(assignment);
+            var updatedEmployee = employeeService.update(id, dto);
             return ResponseEntity.ok(updatedEmployee);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();

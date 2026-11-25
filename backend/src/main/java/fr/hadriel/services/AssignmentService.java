@@ -5,8 +5,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import fr.hadriel.entities.Assignment;
-import fr.hadriel.repos.AssignmentRepository;
+import fr.hadriel.model.Assignment;
+import fr.hadriel.repositories.AssignmentRepository;
 
 @Service 
 public class AssignmentService {

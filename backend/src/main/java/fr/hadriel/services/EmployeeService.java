@@ -2,42 +2,55 @@ package fr.hadriel.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import fr.hadriel.entities.Employee;
-import fr.hadriel.repos.EmployeeRepository;
+import fr.hadriel.model.dto.EmployeeCreateDTO;
+import fr.hadriel.model.dto.EmployeeDTO;
+import fr.hadriel.model.dto.EmployeeUpdateDTO;
+import fr.hadriel.repositories.EmployeeRepository;
+import fr.hadriel.services.mapper.EmployeeMapper;
 
 @Service
 public class EmployeeService {
 
+    private final EmployeeMapper employeeMapper;
     private final EmployeeRepository employeeRepository;
 
-    public EmployeeService(EmployeeRepository employeeRepository) {
+    public EmployeeService(EmployeeMapper employeeMapper, EmployeeRepository employeeRepository) {
+        this.employeeMapper = employeeMapper;
         this.employeeRepository = employeeRepository;
     }
 
-    public Employee create(Employee employee) {
-        if (employee.getId() != 0) {
-            throw new RuntimeException();
-        }
-        return employeeRepository.save(employee);
+    public EmployeeDTO create(EmployeeCreateDTO dto) {
+        var entity = employeeMapper.toEntity(dto);
+
+        entity = employeeRepository.save(entity);
+
+        return employeeMapper.toDto(entity);
     }
 
-    public Employee update(Employee employee) {
-        employeeRepository.findById(employee.getId()).orElseThrow();
-        return employeeRepository.save(employee);
+    public EmployeeDTO update(long id, EmployeeUpdateDTO dto) {
+        var entity = employeeRepository.findById(id).orElseThrow();
+
+        employeeMapper.copy(dto, entity);
+        entity = employeeRepository.save(entity);
+
+        return employeeMapper.toDto(entity);
     }
 
     public void delete(long id) {
         employeeRepository.deleteById(id);
     }
 
-    public Optional<Employee> find(long id) {
-        return employeeRepository.findById(id);
+    public Optional<EmployeeDTO> find(long id) {
+        return employeeRepository.findById(id).map(employeeMapper::toDto);
     }
 
-    public List<Employee> all() {
-        return employeeRepository.findAll();
+    public List<EmployeeDTO> all() {
+        return employeeRepository.findAll().stream()
+            .map(employeeMapper::toDto)
+            .collect(Collectors.toList());
     }
 }

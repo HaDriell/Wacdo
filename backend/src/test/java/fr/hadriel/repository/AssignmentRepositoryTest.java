@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 
-import fr.hadriel.entities.Assignment;
-import fr.hadriel.entities.Employee;
-import fr.hadriel.entities.Function;
-import fr.hadriel.entities.Restaurant;
-import fr.hadriel.repos.AssignmentRepository;
-import fr.hadriel.repos.EmployeeRepository;
-import fr.hadriel.repos.FunctionRepository;
-import fr.hadriel.repos.RestaurantRepository;
+import fr.hadriel.model.Assignment;
+import fr.hadriel.model.Employee;
+import fr.hadriel.model.Function;
+import fr.hadriel.model.Restaurant;
+import fr.hadriel.repositories.AssignmentRepository;
+import fr.hadriel.repositories.EmployeeRepository;
+import fr.hadriel.repositories.FunctionRepository;
+import fr.hadriel.repositories.RestaurantRepository;
 
 @DataJpaTest
 public class AssignmentRepositoryTest {

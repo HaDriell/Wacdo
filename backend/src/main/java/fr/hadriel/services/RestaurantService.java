@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import fr.hadriel.entities.Restaurant;
-import fr.hadriel.repos.RestaurantRepository;
+import fr.hadriel.model.Restaurant;
+import fr.hadriel.repositories.RestaurantRepository;
 import fr.hadriel.specifications.RestaurantSpecifications;
 
 @Service

@@ -1,6 +1,4 @@
-package fr.hadriel.entities;
-
-import java.time.LocalDate;
+package fr.hadriel.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,25 +14,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor 
 @AllArgsConstructor 
 @Builder 
-@Entity
-public class Employee {
+@Entity 
+public class Function {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
-    private String firstName;
-
-    @Column
-    private String lastName;
-
-    @Column
-    private LocalDate dateOfHire;
-
-    @Column
-    private boolean administrator;
-
-    @Column
-    private String password;
+    private String label;
 }

@@ -6,13 +6,15 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import fr.hadriel.entities.Restaurant;
+import fr.hadriel.model.Restaurant;
 
 @SpringBootTest
 public class RestaurantServiceTest {
 
     @Autowired 
     private RestaurantService restaurantService;
+
+    // TODO : test CRUD operations
 
     @Test 
     void shouldFilterRestaurants() {

@@ -2,7 +2,7 @@ package fr.hadriel.specifications;
 
 import org.springframework.data.jpa.domain.Specification;
 
-import fr.hadriel.entities.Restaurant;
+import fr.hadriel.model.Restaurant;
 
 public class RestaurantSpecifications {
 

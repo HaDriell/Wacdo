@@ -1,4 +1,4 @@
-package fr.hadriel.entities;
+package fr.hadriel.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 
-import fr.hadriel.entities.Employee;
-import fr.hadriel.repos.EmployeeRepository;
+import fr.hadriel.model.Employee;
+import fr.hadriel.repositories.EmployeeRepository;
 
 @DataJpaTest
 public class EmployeeRepositoryTest {

@@ -2,7 +2,7 @@ package fr.hadriel.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.hadriel.entities.Assignment;
+import fr.hadriel.model.Assignment;
 import fr.hadriel.services.AssignmentService;
 
 import java.util.List;
