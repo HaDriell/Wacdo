@@ -12,7 +12,7 @@ import fr.hadriel.model.dto.EmployeeUpdateDTO;
 
 @Mapper(componentModel = "spring")
 public interface EmployeeMapper {
-    public static final EmployeeMapper MAPPER = Mappers.getMapper(EmployeeMapper.class);
+    public static final EmployeeMapper Instance = Mappers.getMapper(EmployeeMapper.class);
 
     @Mapping(target = "id", ignore = true)
     Employee toEntity(EmployeeCreateDTO dto);
